@@ -1,25 +1,36 @@
-<%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class='container'>
+  <div class='row'>
+    <div class='col-lg-8 col-lg-offset-2'>
+      <div class='well'>
+        <%= form_for(@post) do |f| %>
+          <% if @post.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+        
+              <ul>
+              <% @post.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+        
+          <div class="post-input">
+            <%= f.text_area(:content, placeholder: "What's on your mind?", class: 'post-input', maxlength: 150) %>
+          </div>
+          <div class="field">
+           
+          </div>
+          <div class='row'>
+            <div class="col-lg-offset-10">
+              <%= f.submit(class: 'btn-blue') %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-  <% end %>
+  </div>
 
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_field :content %>
-  </div>
-  <div class="field">
-    <%= f.label :likes %><br>
-    <%= f.text_field :likes %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  
+
+</div>

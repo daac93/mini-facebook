@@ -24,6 +24,13 @@ body   {
     background-color: #3b5998;
     border-color: #3b5998;
     color: #FFF;
+    border-radius: 3px;
+}
+
+.post-input   {
+    resize: none;
+    width: 100%;
+    height: 90px;
 }
 
 .atr  {
@@ -36,6 +43,7 @@ body   {
 
 a:hover  {
     text-decoration: underline;
+    background-color: transparent !important;
 }
 
 .msg-error   {
