@@ -9,17 +9,29 @@
           </button>
           
           <div class="navbar-collapse collapse navbar-responsive-collapse">
-              <ul class="nav navbar-nav col-md-6">
-                <li><%= link_to "My Profile", edit_registration_path(current_user) %></li>
-                <li><%= link_to "My Friends", root_path  %></li>
+              <ul class="nav navbar-nav">
+                <li><%= link_to "Search Friends", people_path  %></li>
               </ul>
-              <ul class="nav navbar-right col-md-4">
-                <li class="col-md-8 user-name text-right">
-                  <i class="fa fa-user"></i>
-                  <%= current_user.full_name.present? ? current_user.full_name : current_user.email %>
-                </li>
-                <li class="col-md-4 logout">
-                  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                      <%= current_user.full_name.present? ? current_user.full_name : current_user.email %> 
+                      <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "My Profile", edit_registration_path(current_user) %></li>
+                    <li role="separator" class="divider"></li>
+                    <li><%= link_to "My Friends", friends_path  %></li>
+                    <li>
+                      <%= link_to friends_requests_path  do%> 
+                        My Friend Requests
+                        <span class="badge"><%= current_user.requested_friends.size %></span>
+                      <% end %>
+                    </li>
+                    <li role="separator" class="divider"></li>
+                    <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+                  </ul>
                 </li>
               </ul>
           </div>
