@@ -1,15 +1,19 @@
 //Thanks to this article http://devtacular.com/articles/bkonrad/how-to-style-an-application-like-facebook by Bill Konrad for the guidance
 
 body   {
-    font-family: "lucida grande" ,tahoma,verdana,arial,sans-serif;  
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;  
 }
 
 .navbar   {  
     background-color: #3b5998;
 }
 
-.navbar a   {
-    color: #FFF !important;
+.navbar-default .navbar-brand   {
+    color: #FFF;
+}
+
+.navbar-default .nav>li>a  {
+    color: #FFF;
 }
    
 .well-login  {  
@@ -26,6 +30,8 @@ body   {
     color: #FFF;
     border-radius: 3px;
 }
+
+
 
 .post-input   {
     resize: none;
@@ -44,6 +50,10 @@ body   {
 a:hover  {
     text-decoration: underline;
     background-color: transparent !important;
+}
+
+.btn:visited  {
+    color: #FFF;
 }
 
 .msg-error   {

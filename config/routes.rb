@@ -1,16 +1,33 @@
 Rails.application.routes.draw do
   root 'pages#homepage'
   
-  resources :posts do
+  devise_for :users
+  
+  resources :posts, :only => [:create] do
     member do
       put 'like', to: 'posts#like'
     end
   end
   
-  devise_for :users
-  
-  get 'my_profile' => 'users#my_profile'
+  get 'profile', to: 'users#my_profile'
+  get 'friends', to: 'users#friends'
+  get 'people', to: 'users#index'
   get 'search_friends', to: 'users#search'
+  get 'friends/requests', to: 'users#friend_requests'
+  
+  resources :users, :only => [:show]  do
+    member do
+      post 'request_friend', to: 'users#send_friend_request'
+      post 'decline_friend', to: 'users#decline_friend_request'
+      post 'accept_friend', to: 'users#accept_friend_request'
+      post 'remove_friend', to: 'users#remove_friend'
+    end
+  end
+  
+  #post 'request_friend', to: 'users#send_friend_request'
+  #post 'decline_friend', to: 'users#decline_friend_request'
+  #post 'accept_friend', to: 'users#accept_request'
+  #post 'remove_friend', to: 'users#remove_friend'
   
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

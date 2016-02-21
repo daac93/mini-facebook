@@ -1,0 +1,31 @@
+<div id='friend-lookup'>
+    <h3>Search for friends</h3>
+    <%= form_tag search_friends_path, remote: true, method: :get, id: 'friend-lookup-form' do %>
+        <div class='form-group row no-padding text-center col-md-12'>
+            <div class='col-md-10'>
+                <%= text_field_tag :search_param, params[:search_param], 
+                                                    placeholder: "First name, last name or email", autofocus: true,
+                                                    class: 'form-control search-box input-lg' %>
+            </div>
+            <div class='col-md-2'>
+                <%= button_tag(id: 'search', type: :submit, class: "btn btn-lg btn-success") do %>
+                    <i class="fa fa-search"></i> Look up a friend
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+    
+    <%= render 'common/spinner' %>
+    
+    <% if @users_result %>
+        <% if @users_result.size > 0 %>
+            <%= render 'index', obj: @users_result %>
+        <% else %>
+            <p class="lead col-md-12">
+                No people match this search criteria
+            </p>
+        <% end %>
+    <% end %>
+    
+    <div id="friend-lookup-errors"></div>
+</div>

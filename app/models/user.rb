@@ -14,23 +14,22 @@ class User < ActiveRecord::Base
   end
   
   def has_pending_friend_requests?
-    
+    self.requested_friends.any?
   end
   
-  def can_like_post?(post_id)
-  end
-  
-  def not_friends_with?(friend_id)
-    #friendships.where(friend_id: friend_id).count < 1
+  def except_current_user(users)
+    users.reject { |user| user.id == self.id}
   end
   
   def self.search(param)
-    return User.none if param.blank?
+    return User.all if param.blank?
     
     param.strip!
     param.downcase!
     (first_name_matches(param) + last_name_matches(param) + email_matches(param)).uniq
   end
+  
+  #Name methods
   
   def self.first_name_matches(param)
     matches('first_name', param)

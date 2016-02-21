@@ -1,0 +1,34 @@
+<h1>Your Friend Requests</h1>
+<div>
+    <% if !(@friend_requests.any?) %>
+        <div class="row">
+            <p class="lead">You don't have pending requests.</p>
+        </div>
+    <% else %>
+        <%= will_paginate @friend_requests%>
+        <% @friend_requests.each do |user| %>
+            <ul>
+                <div class="row">
+                    <div class="well col-md-4 col-md-offset-4">
+                        <li>PROFILE PIC</li>
+                        <li>
+                            <%= user.email %>
+                        </li>
+                        <li>
+                            <%= link_to 'Confirm', accept_friend_user_path(user),
+                                                                class:"btn btn-success btn-xs",
+                                                                method: :post %>
+                        </li>
+                        <li>
+                            <%= link_to 'Decline', decline_friend_user_path(user),
+                                                                class:"btn btn-danger btn-xs",
+                                                                method: :post %>
+                        </li>
+                        
+                    </div>
+                </div>
+            </ul>
+        <% end %>
+        <%= will_paginate @friend_requests %>
+    <% end %>
+</div>

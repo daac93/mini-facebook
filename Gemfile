@@ -7,6 +7,7 @@ gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'has_friendship'
+gem 'will_paginate', '~> 3.0.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
