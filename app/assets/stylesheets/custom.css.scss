@@ -1,55 +1,102 @@
 //Thanks to this article http://devtacular.com/articles/bkonrad/how-to-style-an-application-like-facebook by Bill Konrad for the guidance
 
-body   {
-    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;  
+$page-background-color: #ebeef4;
+$button-color: #3b5998;
+
+#body   {
+    font-family: helvetica, arial, sans-serifsans-serif;
+    background-color: $page-background-color;
+    font-size: 14px;
+    line-height: 1.38;
 }
 
 .navbar   {  
-    background-color: #3b5998;
-}
-
-.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover   {
-    color: #FFF;
-}
-
-.navbar-default .nav>li>a, .navbar-default .nav>li>a:hover {
-    color: #FFF;
+    background-color: $button-color;
+    
+    .navbar-brand, .navbar-brand:hover, .nav>li>a, .nav>li>a:hover   {
+        color: #FFF;
+    }
 }
    
 .well-login  {  
     margin-top: 50px;
 }
 
-.container  {
-    font-size: 11px;
-}
-
-.btn-blue  {
-    background-color: #3b5998;
-    border-color: #3b5998;
-    color: #FFF;
+.post   {
+    background-color: #FFF;
+    margin-bottom: 10px;
+    padding: 20px 20px 10px 20px;
+    border: 1px solid;
     border-radius: 3px;
-}
-
-
-
-.post-input   {
-    resize: none;
-    width: 100%;
-    height: 90px;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    
+    textarea   {
+        resize: none;
+        width: 100%;
+        border: none;
+        overflow: hidden;
+    }
+    
+    textarea:focus   {
+        outline: none;
+    }
+    
+    img   {
+        width: 40px;
+        height: 40px;
+    }
+    
+    input   {
+        background-color: $button-color;
+        border-color: $button-color;
+        color: #FFF;
+        border-radius: 3px;
+    }
+    
+    small   {
+        font-size: 12px;
+        color: #9197a3;
+        margin-bottom: 2px;
+    }
+    
+    .separator   {
+        height: 1px;
+        background-color: $page-background-color;
+        margin-bottom: 5px;
+    }
+    
+    .data  {
+        margin-bottom: 10px;
+        
+        a   {
+            font-weight: bold;
+            color: $button-color;
+        }
+        
+        a:hover  {
+            color: $button-color;
+            text-decoration: underline;
+        }
+    }
+    
+    .actions   {
+        margin-top: 8px;
+        margin-bottom: 0px;
+    }
+    
+    a:hover   {
+        color: inherit;
+        background-color: transparent;
+        text-decoration: none;
+    }
 }
 
 .atr  {
-    color: #3b5998;  
+    color: $button-color;  
     outline-style: none;  
     text-decoration: none;  
     font-size: 11px;  
     font-weight: bold;  
-}
-
-button:hover  {
-    text-decoration: underline;
-    background-color: transparent !important;
 }
 
 .btn:visited  {

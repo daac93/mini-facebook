@@ -1,36 +1,35 @@
-<div class='container'>
-  <div class='row'>
-    <div class='col-lg-8'>
-      <div class='well'>
-        <%= form_for(@post) do |f| %>
-          <% if @post.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-        
-              <ul>
-              <% @post.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-              </ul>
-            </div>
+<div class='col-lg-12'>
+  <div class='post'>
+    <%= form_for(@post) do |f| %>
+      <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+    
+          <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
           <% end %>
-        
-          <div class="post-input">
-            <%= f.text_area(:content, placeholder: "What's on your mind?", class: 'post-input', maxlength: 150) %>
-          </div>
-          <div class="field">
-           
-          </div>
-          <div class='row'>
-            <div class="col-lg-offset-10">
-              <%= f.submit(class: 'btn-blue') %>
-            </div>
-          </div>
-        <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div class="row">
+        <div class="col-lg-1">
+        	<img src="http://rumahfile.com/file/profile/default.jpg">
+        </div>
+        <div class="col-lg-11">
+          <%= f.text_area(:content, placeholder: "What's on your mind?", maxlength: 150) %>
+        </div>
       </div>
-    </div>
+      
+      <div class="separator"></div>
+      
+      <div class='row'>
+        <div class="col-lg-offset-11">
+          <%= f.submit "Post" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-
-  
-
 </div>
+
