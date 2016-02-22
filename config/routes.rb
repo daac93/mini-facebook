@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'pages#homepage'
   
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "user/registrations" }
   
   resources :posts, :only => [:create] do
     member do
